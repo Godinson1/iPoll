@@ -1,0 +1,134 @@
+@import "../../partials/mixins";
+@import "../../partials/variables";
+@import "../../partials/breakpoints";
+
+.create {
+  width: 100vw;
+  @include flex-center;
+  flex-direction: column;
+  padding: 0;
+  margin: 120px 0 120px 0;
+  text-align: center;
+
+  .create-header {
+    float: right;
+    width: 100%;
+    margin: 20px 0 20px 0;
+    @include flex-between;
+  }
+
+  .flex-start {
+    width: 100%;
+    @include flex-start;
+  }
+
+  .flex-btn {
+    @include flex-center;
+    gap: 20px;
+  }
+
+  .link-container {
+    @include flex-center;
+    border: 1px solid rgb(228, 227, 227);
+    flex-wrap: wrap;
+    padding: 5px;
+    gap: 10px;
+    border-radius: 5px;
+    color: rgb(58, 143, 129);
+    width: 100%;
+    font-size: 0.9rem;
+
+    .btn-link {
+      background-color: $secondary-color;
+      color: $primary-color;
+      padding: 2px 5px 2px 5px;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+  }
+
+  .flex {
+    display: flex;
+
+    input {
+      width: 550px;
+    }
+
+    button {
+      margin: 0 0 0 20px;
+      position: absolute;
+    }
+  }
+
+  .cselect-time {
+    @include custom-input;
+    height: 50px;
+    cursor: pointer;
+  }
+
+  h1 {
+    color: $secondary-color;
+    font-size: 1.5rem;
+  }
+
+  .action {
+    @include flex-start;
+    margin-top: 20px;
+
+    .btn-add {
+      width: 40px;
+      height: 40px;
+      color: $primary-color;
+      text-align: center;
+      @include flex-center;
+      font-weight: bold;
+      font-size: 1.3rem;
+      cursor: pointer;
+      background-color: $secondary-color;
+
+      &:disabled {
+        cursor: not-allowed;
+      }
+    }
+
+    .red {
+      background-color: rgb(243, 91, 91);
+      margin-left: 10px;
+    }
+  }
+
+  .ta {
+    resize: none;
+    height: 100px;
+    @include custom-input;
+  }
+
+  .create-form {
+    width: 700px;
+    border-radius: 5px;
+    padding: 20px;
+    border: 1px solid $secondary-color;
+  }
+}
+
+.cinput {
+  @include custom-input;
+  height: 50px;
+}
+
+.cselect {
+  cursor: pointer;
+  @include custom-input;
+  width: 250px;
+  height: 50px;
+}
+
+@include media-sm {
+  .create {
+    padding: 20px;
+  }
+  .create-form,
+  .select-con {
+    width: 100% !important;
+  }
+}

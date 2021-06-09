@@ -1,0 +1,235 @@
+/*
+Color variables
+..........................................................*/
+/*........................................................*/
+/*
+Color variables
+..........................................................*/
+/*........................................................*/
+.create {
+  width: 100vw;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  padding: 0;
+  margin: 120px 0 120px 0;
+}
+
+.create .create-header {
+  float: right;
+  width: 100%;
+  margin: 20px 0 20px 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 20px;
+}
+
+.create .flex-start {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+}
+
+.create .flex-btn {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 20px;
+}
+
+.create .link-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border: 1px solid #e4e3e3;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  padding: 5px;
+  gap: 10px;
+  border-radius: 5px;
+  color: #3a8f81;
+  width: 100%;
+  font-size: 0.9rem;
+}
+
+.create .link-container .btn-link {
+  background-color: #24d394;
+  color: #ffffff;
+  padding: 2px 5px 2px 5px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.create .flex {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.create .flex input {
+  width: 550px;
+}
+
+.create .flex button {
+  margin: 0 0 0 20px;
+  position: absolute;
+}
+
+.create .cselect-time {
+  width: 100%;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  border: 1px solid #e4e3e3;
+  padding-left: 15px;
+  height: 50px;
+  cursor: pointer;
+}
+
+.create .cselect-time:focus {
+  outline: none;
+  border: 1px solid #24d394;
+}
+
+.create .cselect {
+  cursor: pointer;
+  border: 1px solid #e4e3e3;
+  margin-top: 30px;
+  border-radius: 5px;
+  width: 250px;
+  padding: 0 5px 0 5px;
+  height: 50px;
+}
+
+.create .cselect:focus {
+  outline: none;
+  border: 1px solid #24d394;
+}
+
+.create h1 {
+  color: #24d394;
+  font-size: 1.5rem;
+}
+
+.create .action {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  margin-top: 20px;
+}
+
+.create .action .btn-add {
+  width: 40px;
+  height: 40px;
+  color: #ffffff;
+  text-align: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-weight: bold;
+  font-size: 1.3rem;
+  cursor: pointer;
+  background-color: #24d394;
+}
+
+.create .action .btn-add:disabled {
+  cursor: not-allowed;
+}
+
+.create .action .red {
+  background-color: #f35b5b;
+  margin-left: 10px;
+}
+
+.create .ta {
+  resize: none;
+  height: 100px;
+  width: 100%;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  border: 1px solid #e4e3e3;
+  padding-left: 15px;
+}
+
+.create .ta:focus {
+  outline: none;
+  border: 1px solid #24d394;
+}
+
+.create .cinput {
+  width: 100%;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  border: 1px solid #e4e3e3;
+  padding-left: 15px;
+  height: 50px;
+}
+
+.create .cinput:focus {
+  outline: none;
+  border: 1px solid #24d394;
+}
+
+.create .create-form {
+  width: 700px;
+  border-radius: 5px;
+  padding: 20px;
+  border: 1px solid #24d394;
+}
+
+@media screen and (max-width: 768px) {
+  .create {
+    padding: 20px;
+  }
+  .create-form {
+    width: 100% !important;
+  }
+}
+/*# sourceMappingURL=styles.css.map */

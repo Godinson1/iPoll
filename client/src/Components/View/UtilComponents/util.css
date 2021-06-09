@@ -1,0 +1,134 @@
+/*
+Color variables
+..........................................................*/
+/*........................................................*/
+@-webkit-keyframes bar1 {
+  0% {
+    width: 0px;
+  }
+  100% {
+    width: 200px;
+  }
+}
+@keyframes bar1 {
+  0% {
+    width: 0px;
+  }
+  100% {
+    width: 200px;
+  }
+}
+
+@-webkit-keyframes bar2 {
+  0% {
+    width: 0px;
+  }
+  100% {
+    width: 300px;
+  }
+}
+
+@keyframes bar2 {
+  0% {
+    width: 0px;
+  }
+  100% {
+    width: 300px;
+  }
+}
+
+@-webkit-keyframes bar3 {
+  0% {
+    width: 0px;
+  }
+  100% {
+    width: 400px;
+  }
+}
+
+@keyframes bar3 {
+  0% {
+    width: 0px;
+  }
+  100% {
+    width: 400px;
+  }
+}
+
+@-webkit-keyframes bar4 {
+  0% {
+    width: 0px;
+  }
+  100% {
+    width: 500px;
+  }
+}
+
+@keyframes bar4 {
+  0% {
+    width: 0px;
+  }
+  100% {
+    width: 500px;
+  }
+}
+
+@-webkit-keyframes lds-grid {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+@keyframes lds-grid {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+.lds-grid {
+  display: inline-block;
+  position: relative;
+  width: 80px;
+  height: 80px;
+  margin-top: 150px;
+}
+
+.lds-grid div {
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: #24d394;
+  -webkit-animation: lds-grid 1.2s linear infinite;
+          animation: lds-grid 1.2s linear infinite;
+}
+
+.lds-grid div:nth-child(1) {
+  top: 8px;
+  left: 8px;
+  -webkit-animation-delay: 0s;
+          animation-delay: 0s;
+}
+
+.lds-grid div:nth-child(2) {
+  top: 8px;
+  left: 32px;
+  -webkit-animation-delay: -0.4s;
+          animation-delay: -0.4s;
+}
+
+.lds-grid div:nth-child(3) {
+  top: 8px;
+  left: 56px;
+  -webkit-animation-delay: -0.8s;
+          animation-delay: -0.8s;
+}
+/*# sourceMappingURL=util.css.map */

@@ -1,0 +1,89 @@
+@import "../../partials/mixins";
+@import "../../partials/variables";
+@import "../../partials/breakpoints";
+@import "../../partials/animations";
+
+.create-poll {
+  width: 100vw;
+  @include flex-center;
+  flex-direction: column;
+  padding: 0 150px 0 150px;
+  margin: 120px 0 120px 0;
+  text-align: center;
+
+  .polls {
+    width: 100%;
+    .flex-between {
+      width: 100%;
+      @include flex-between;
+      flex-wrap: wrap;
+      margin-top: 30px;
+    }
+    .poll-header {
+      color: $secondary-color;
+      font-size: 2.5rem;
+      font-weight: bold;
+      font-family: roboto;
+    }
+  }
+
+  .poll {
+    margin-top: 30px;
+    @include flex-center;
+    gap: 20px;
+    flex-wrap: wrap;
+    cursor: pointer;
+
+    .polloption {
+      width: 250px;
+      @include flex-between;
+      flex-direction: column;
+      border-radius: 5px;
+      height: 150px;
+      padding: 10px;
+      border: 1px solid $secondary-color;
+    }
+  }
+}
+
+.poll-stat {
+  font-size: 0.9rem;
+}
+
+#vote {
+  width: 100%;
+  margin-bottom: 20px;
+  background-color: $secondary-color;
+  color: $primary-color;
+  border-radius: 5px;
+  cursor: pointer;
+  padding: 10px;
+
+  &:disabled {
+    cursor: not-allowed;
+  }
+}
+
+.loading-container {
+  opacity: 0.4;
+}
+
+#voted {
+  @include flex-between;
+  width: 100%;
+  margin-bottom: 20px;
+  color: $primary-color;
+  border-radius: 5px;
+  padding: 10px;
+}
+
+@include media-sm {
+  .create-poll {
+    padding: 20px;
+  }
+
+  .polloption,
+  .cselect {
+    width: 100% !important;
+  }
+}
