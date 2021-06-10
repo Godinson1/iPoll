@@ -1,5 +1,5 @@
 {
-  "name": "backend",
+  "name": "ipoll-backend",
   "version": "1.0.0",
   "description": "A polling app that helps user create polls.",
   "main": "index.js",
