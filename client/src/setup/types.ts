@@ -13,3 +13,9 @@ export interface IVote {
   optionsId: string;
   clientIp: string;
 }
+
+export interface IContact {
+  name: string;
+  email: string;
+  message: string;
+}

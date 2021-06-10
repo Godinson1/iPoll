@@ -1,15 +1,21 @@
-import { IPoll, IVote } from "./types";
+import { IPoll, IVote, IContact } from "./types";
 import axios from "axios";
 
 const api = axios.create({
-  baseURL: "http://localhost:5000/polls",
+  baseURL: "http://localhost:5000",
 });
 
-export const getAllPolls = () => api.get("/").then((res) => res.data);
+/*
+* Poll Calls
+----------------------------------------------------------
+----------------------------------------------------------
+*/
+
+export const getAllPolls = () => api.get("/polls").then((res) => res.data);
 
 export const getPoll = async (id: string) => {
   try {
-    const res = await api.get(`/${id}`);
+    const res = await api.get(`/polls/${id}`);
     return res.data;
   } catch (error) {
     throw new Error(error.response.data.message);
@@ -18,7 +24,7 @@ export const getPoll = async (id: string) => {
 
 export const createPoll = async (data: IPoll) => {
   try {
-    const res = await api.post(`/poll`, data);
+    const res = await api.post(`/polls/poll`, data);
     return res.data;
   } catch (error) {
     throw new Error(error.response.data.message);
@@ -27,7 +33,22 @@ export const createPoll = async (data: IPoll) => {
 
 export const createVote = async (data: IVote) => {
   try {
-    const res = await api.put(`/${data.id}/vote`, data);
+    const res = await api.put(`/polls/${data.id}/vote`, data);
+    return res.data;
+  } catch (error) {
+    throw new Error(error.response.data.message);
+  }
+};
+
+/*
+* Contact Calls
+----------------------------------------------------------
+----------------------------------------------------------
+*/
+
+export const createContact = async (data: IContact) => {
+  try {
+    const res = await api.post(`/contacts/contact`, data);
     return res.data;
   } catch (error) {
     throw new Error(error.response.data.message);

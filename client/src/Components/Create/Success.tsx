@@ -58,7 +58,10 @@ const Success = (data: any) => {
         <br /> <br />
         <br /> <br />
         <div onClick={() => window.location.reload()}>
-          Not yet done? <span className="secondary">CREATE ANOTHER.</span>
+          Not yet done?{" "}
+          <span id="ca" className="secondary">
+            CREATE ANOTHER.
+          </span>
         </div>
       </div>
     </div>

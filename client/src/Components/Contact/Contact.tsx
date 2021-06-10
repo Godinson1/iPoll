@@ -1,7 +1,10 @@
 import React, { useState } from "react";
 import { Divider, useToast } from "@chakra-ui/react";
-import { showMessage } from "../View";
 import { motion } from "framer-motion";
+import { useMutation } from "react-query";
+
+import * as api from "../../setup/calls";
+import { showMessage } from "../View";
 import { CONTACT_FORM } from "./constants";
 import "./styles.scss";
 
@@ -11,6 +14,17 @@ const Contact = () => {
     name: "",
     email: "",
     message: "",
+  });
+
+  const { mutate, isLoading } = useMutation("contact", api.createContact, {
+    onSuccess: (data) => {
+      showMessage(toast, "success", data.message);
+      setState({ name: "", email: "", message: "" });
+    },
+    onError: (error) => {
+      const err = error as { message: string };
+      showMessage(toast, "error", err.message);
+    },
   });
 
   const handleChange = (
@@ -23,11 +37,11 @@ const Contact = () => {
     }));
   };
 
-  const handleSubmit = (e: any) => {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    console.log(state);
-    showMessage(toast, "info", "It is working..");
+    mutate(state);
   };
+
   return (
     <div>
       <motion.div
@@ -52,6 +66,7 @@ const Contact = () => {
                         onChange={handleChange}
                         required
                         name={name}
+                        value={name === "name" ? state.name : state.email}
                         placeholder={label}
                         className="cinput"
                       />
@@ -65,6 +80,7 @@ const Contact = () => {
                         cols={33}
                         onChange={handleChange}
                         name={name}
+                        value={state.message}
                         placeholder={label}
                         className={className}
                       />
@@ -73,8 +89,8 @@ const Contact = () => {
                 </div>
               );
             })}
-            <button type="submit" className="btn-create">
-              Submit Message
+            <button disabled={isLoading} type="submit" className="btn-create">
+              {isLoading ? "Submitting..." : "Submit Message"}
             </button>
           </form>
         </div>

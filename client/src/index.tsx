@@ -9,20 +9,18 @@ import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 
 const client = new QueryClient();
+const production = process.env.NODE_ENV === "production";
 
 ReactDOM.render(
   <React.StrictMode>
     <Router>
       <QueryClientProvider client={client}>
         <App />
-        <ReactQueryDevtools />
+        {production ? "" : <ReactQueryDevtools />}
       </QueryClientProvider>
     </Router>
   </React.StrictMode>,
   document.getElementById("root")
 );
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
 reportWebVitals();

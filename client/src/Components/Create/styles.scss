@@ -111,6 +111,10 @@
   }
 }
 
+#ca {
+  cursor: pointer;
+}
+
 .cinput {
   @include custom-input;
   height: 50px;

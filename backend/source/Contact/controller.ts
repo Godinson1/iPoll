@@ -27,7 +27,7 @@ const createContact = async (
 
     return res.status(OK).json({
       status: success,
-      message: "Contact created successfully.",
+      message: "Message sent successfully.",
       data,
     });
   } catch (err) {
