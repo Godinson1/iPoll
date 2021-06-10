@@ -1,4 +1,5 @@
 import express from "express";
+import path from "path";
 import {
   defineRoutes,
   defineExpressMiddlewares,
@@ -15,6 +16,12 @@ defineExpressMiddlewares(app);
 
 //Define Routes and file configuration
 defineRoutes(app);
+
+app.use(express.static(path.join(__dirname, "../../client/build")));
+
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "../../client/build/index.html"));
+});
 
 // Error handler
 handleRouteError(app);
