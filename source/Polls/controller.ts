@@ -28,12 +28,7 @@ const getAllPoll = async (req: Request, res: Response): Promise<Response> => {
     });
   } catch (err) {
     console.log(err);
-    return handleResponse(
-      res,
-      error,
-      INTERNAL_SERVER_ERROR,
-      "Something went wrong"
-    );
+    return handleResponse(res, error, INTERNAL_SERVER_ERROR, "Something went wrong");
   }
 };
 
@@ -44,8 +39,7 @@ const getAllPoll = async (req: Request, res: Response): Promise<Response> => {
 const getPoll = async (req: Request, res: Response): Promise<Response> => {
   let data;
   try {
-    if (!isValidObjectId(req.params.id))
-      return handleResponse(res, error, NOT_FOUND, "Poll not found!");
+    if (!isValidObjectId(req.params.id)) return handleResponse(res, error, NOT_FOUND, "Poll not found!");
 
     data = await Poll.findOne({ _id: req.params.id });
     if (!data) return handleResponse(res, error, NOT_FOUND, "Poll not found!");
@@ -54,20 +48,13 @@ const getPoll = async (req: Request, res: Response): Promise<Response> => {
 
     return res.status(OK).json({
       status: success,
-      message: status
-        ? "Poll retieved successfully but no longer active"
-        : "Poll retieved successfully",
+      message: status ? "Poll retieved successfully but no longer active" : "Poll retieved successfully",
       active: status,
       data,
     });
   } catch (err) {
     console.log(err);
-    return handleResponse(
-      res,
-      error,
-      INTERNAL_SERVER_ERROR,
-      "Something went wrong"
-    );
+    return handleResponse(res, error, INTERNAL_SERVER_ERROR, "Something went wrong");
   }
 };
 
@@ -76,8 +63,7 @@ const getPoll = async (req: Request, res: Response): Promise<Response> => {
  * AIM - Create new post
  */
 const createPoll = async (req: Request, res: Response): Promise<Response> => {
-  const { title, creator, category, options, endDate, coverPhoto, status } =
-    req.body;
+  const { title, creator, category, options, endDate, coverPhoto, status } = req.body;
 
   try {
     const selectedOptions = options.map((content: string) => ({
@@ -105,16 +91,11 @@ const createPoll = async (req: Request, res: Response): Promise<Response> => {
       status: success,
       message: "Poll created successfully.",
       data,
-      viewLink: `http://localhost:3000/poll/${data._id}/view`,
+      viewLink: `https://ipoll.onrender.com/poll/${data._id}/view`,
     });
   } catch (err) {
     console.log(err);
-    return handleResponse(
-      res,
-      error,
-      INTERNAL_SERVER_ERROR,
-      "Something went wrong"
-    );
+    return handleResponse(res, error, INTERNAL_SERVER_ERROR, "Something went wrong");
   }
 };
 
@@ -129,28 +110,19 @@ const createVote = async (req: Request, res: Response): Promise<Response> => {
   const isMemberAsync = promisify(client.sismember).bind(client);
   const incAsync = promisify(client.incr).bind(client);
 
-  if (!clientIp || !optionsId)
-    return handleResponse(res, error, NOT_FOUND, "Provide all parameters!");
+  if (!clientIp || !optionsId) return handleResponse(res, error, NOT_FOUND, "Provide all parameters!");
 
   try {
-    if (!isValidObjectId(req.params.id))
-      return handleResponse(res, error, NOT_FOUND, "Poll not found!");
+    if (!isValidObjectId(req.params.id)) return handleResponse(res, error, NOT_FOUND, "Poll not found!");
 
     poll = await Poll.findOne({ _id: req.params.id });
     if (!poll) return handleResponse(res, error, NOT_FOUND, "Poll not found!");
 
     const validOptionIDs = poll.options.map((cont) => cont.id);
-    if (!validOptionIDs.includes(optionsId))
-      return handleResponse(res, error, BAD_REQUEST, "Poll option not found");
+    if (!validOptionIDs.includes(optionsId)) return handleResponse(res, error, BAD_REQUEST, "Poll option not found");
 
     const alreadyVoted = await isMemberAsync(req.params.id, clientIp);
-    if (alreadyVoted)
-      return handleResponse(
-        res,
-        error,
-        BAD_REQUEST,
-        "You already voted for this poll!"
-      );
+    if (alreadyVoted) return handleResponse(res, error, BAD_REQUEST, "You already voted for this poll!");
 
     await Poll.updateOne(
       {
@@ -177,12 +149,7 @@ const createVote = async (req: Request, res: Response): Promise<Response> => {
     });
   } catch (err) {
     console.log(err);
-    return handleResponse(
-      res,
-      error,
-      INTERNAL_SERVER_ERROR,
-      "Something went wrong"
-    );
+    return handleResponse(res, error, INTERNAL_SERVER_ERROR, "Something went wrong");
   }
 };
 
